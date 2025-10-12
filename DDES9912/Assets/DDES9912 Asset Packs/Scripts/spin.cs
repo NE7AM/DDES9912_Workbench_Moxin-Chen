@@ -14,4 +14,15 @@ public class spin : MonoBehaviour
     {
         transform.Rotate(0, yspeed * Time.deltaTime, 0);
     }
+
+    public void Stop()
+    {
+        yspeed = 0;
+    }
+
+    public void Setspeed(float newSpeed)
+
+    {
+        yspeed = newSpeed;
+    }
 }

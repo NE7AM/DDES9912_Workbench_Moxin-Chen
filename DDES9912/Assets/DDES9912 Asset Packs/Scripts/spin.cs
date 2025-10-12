@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class spin : MonoBehaviour
+public class Spin : MonoBehaviour
 {
-    public float yspeed;
+    public float ySpeed;
+    public float yAcceleration;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,17 +14,24 @@ public class spin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, yspeed * Time.deltaTime, 0);
+        transform.Rotate(0, ySpeed * Time.deltaTime, 0);
+
+        ySpeed += yAcceleration * Time.deltaTime;
     }
 
     public void Stop()
     {
-        yspeed = 0;
+        ySpeed = 0;
+        yAcceleration = 0;
     }
 
-    public void Setspeed(float newSpeed)
-
+    public void SetSpeed(float newSpeed)
     {
-        yspeed = newSpeed;
+        ySpeed = newSpeed;
+    }
+
+    public void SetAcceleration(float newAcceleration)
+    {
+        yAcceleration = newAcceleration;   
     }
 }

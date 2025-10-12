@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class stare : MonoBehaviour
+public class Stare : MonoBehaviour
 {
-
     public Transform target;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

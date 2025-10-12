@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class spinOnBump : MonoBehaviour
+public class SpinOnBump : MonoBehaviour
 {
     public Rigidbody subject;
     public float spinForce;
@@ -19,7 +19,7 @@ public class spinOnBump : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("I AM HIT");
+        Debug.Log("I AM HIT!");
         subject.AddTorque(0, 0, spinForce);
     }
 }

@@ -19,6 +19,11 @@ public class Spin : MonoBehaviour
         ySpeed += yAcceleration * Time.deltaTime;
     }
 
+    public void FlipSpeed()
+    {
+        ySpeed = ySpeed * -1;
+    }
+
     public void Stop()
     {
         ySpeed = 0;

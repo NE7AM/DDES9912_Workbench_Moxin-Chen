@@ -26,4 +26,21 @@ public class SinXBob : MonoBehaviour
 
         alpha += bobSpeed * Time.deltaTime;
     }
+
+    public void SetSpeed(float newSpeed)
+    {
+        bobSpeed = newSpeed;
+    }
+
+    public void SetRange(float newRange)
+    {
+        rangeFactor = newRange;
+    }
+
+
+    public void Stop()
+    {
+        bobSpeed = 0;
+        rangeFactor = 0;
+    }
 }

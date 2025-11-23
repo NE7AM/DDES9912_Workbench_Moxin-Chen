@@ -13,6 +13,7 @@ public class HintFaceCamera : MonoBehaviour
     void Update()
     {
         transform.LookAt(target);
+        // Rotate 180 degrees so the hint is facing the correct orientation
         transform.Rotate(0, 180, 0);
     }
 }

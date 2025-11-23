@@ -1,0 +1,38 @@
+using UnityEngine;
+
+public class GroundTrigger : MonoBehaviour
+{
+    public GameObject package;
+    public ParticleSystem firework;
+    public PistonOscillator piston;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Only react when the falling object is the package
+        if (!other.CompareTag("Package")) return;
+
+        // 1. Play the firework effect
+        if (firework != null)
+            firework.Play();
+
+        // 2. Stop the engine system
+        if (piston != null)
+            piston.Stop();
+
+        // 3. Hide the package once it hits the ground
+        if (package != null)
+            package.SetActive(false);
+    }
+}

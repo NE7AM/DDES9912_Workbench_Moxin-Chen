@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SinXBob : MonoBehaviour
+public class PistonOscillator : MonoBehaviour
 {
     public Vector3 startPosition;
     public Vector3 sinOffset;

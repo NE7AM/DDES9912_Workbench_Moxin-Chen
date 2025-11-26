@@ -5,6 +5,8 @@ public class TriggerToInteract : MonoBehaviour
 {
     // Reference to the InteractableGeneral component
     public InteractableGeneral interactScript;
+    public NPCReturnController npc;
+    public NPCMoveTowardTarget npcMove;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +28,15 @@ public class TriggerToInteract : MonoBehaviour
         // Call the original button interaction
         interactScript.onPrimaryInteract.Invoke();
 
+        // Wait 1.5 seconds, then NPC returns to start position
+        StartCoroutine(npc.DelayedReturn(1.5f));
+
         Debug.Log("NPC triggered button through trigger zone!");
+
+        npcMove.canMove = false; // Disable NPC forward movement toward the button.
+        npc.StartCoroutine(npc.DelayedReturn(1.5f));
+
     }
+
+    
 }

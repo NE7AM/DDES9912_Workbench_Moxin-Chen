@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ParallelMove : MonoBehaviour
+public class ValveController : MonoBehaviour
 {
     public float moveDistance = 0.1f;  
     public float speed = 2f;           

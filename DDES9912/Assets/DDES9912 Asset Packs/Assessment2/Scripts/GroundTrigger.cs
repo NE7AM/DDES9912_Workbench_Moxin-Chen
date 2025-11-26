@@ -5,6 +5,7 @@ public class GroundTrigger : MonoBehaviour
     public GameObject package;
     public ParticleSystem firework;
     public PistonOscillator piston;
+    public LightController[] allLamps;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,5 +35,15 @@ public class GroundTrigger : MonoBehaviour
         // 3. Hide the package once it hits the ground
         if (package != null)
             package.SetActive(false);
+
+        // 4. Reset all lamps to red color
+        if (allLamps != null)
+        {
+            foreach (var lamp in allLamps)
+            {
+                if (lamp != null)
+                    lamp.SetStopColor();
+            }
+        }
     }
 }

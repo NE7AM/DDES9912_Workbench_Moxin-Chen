@@ -63,13 +63,7 @@ public class NMAWalkTowards : MonoBehaviour
             }
         }
 
-        if (destination != null)
-        {
-            if(destination.gameObject.activeSelf)
-                myNma.SetDestination(destination.position);
-            else                
-                myNma.SetDestination(transform.position);
-        }
+        
 
         HandleAvatar();
 

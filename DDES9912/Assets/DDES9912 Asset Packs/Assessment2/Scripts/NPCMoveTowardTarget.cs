@@ -3,10 +3,11 @@ using UnityEngine.AI;
 // Makes the NPC move toward a target point using NavMeshAgent
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class npcMoveTowardTarget : MonoBehaviour
+public class NPCMoveTowardTarget : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Transform destination;
+    public bool canMove = true; // Whether the NPC is allowed to move toward the target
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +18,11 @@ public class npcMoveTowardTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.destination = destination.position;
+        if (!canMove) return;    // Stop updating movement when disabled
+
+        if (agent != null && destination != null)
+        {
+            agent.SetDestination(destination.position);
+        }
     }
 }

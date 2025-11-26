@@ -55,7 +55,7 @@ public class LightController : MonoBehaviour
         if (pointLight != null)
         {
             pointLight.color = c;
-            pointLight.intensity = 4f;
+            pointLight.intensity = 0.8f;
         }
     }
 }

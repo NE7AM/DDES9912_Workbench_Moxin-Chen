@@ -5,6 +5,10 @@ public class ResetController : MonoBehaviour
     public Transform packageOriginalPos;
     public GameObject package;
     public NPCMoveTowardTarget npcMove;
+    public LightController[] allLamps;
+    public PistonOscillator piston;
+    public ValveController valve;
+    public LeverController lever;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,8 +22,11 @@ public class ResetController : MonoBehaviour
         
     }
 
+    // Called by the Reset button
     public void ResetAll()
     {
+        Debug.Log("System RESET!");
+
         // 1. Reset the package back to its original position
         if (package != null && packageOriginalPos != null)
         {
@@ -34,6 +41,34 @@ public class ResetController : MonoBehaviour
             npcMove.canMove = true;
         }
 
-        Debug.Log("System RESET!");
+        // 3. Reset all lamps to red
+        if (allLamps != null)
+        {
+            foreach (var lamp in allLamps)
+            {
+                if (lamp != null)
+                    lamp.SetStopColor();
+            }
+        }
+
+        // 4. Stop engine
+        if (piston != null)
+        {
+            piston.SetSpeed(0f);
+            piston.SetRange(0f); 
+        }
+
+        // 5. Close valve
+        if (valve != null)
+        {
+            valve.CloseValve();
+        }
+
+        // 6. Reset lever back to initial up state
+        if (lever != null)
+        {
+            lever.StopLever();
+        }
+
     }
 }

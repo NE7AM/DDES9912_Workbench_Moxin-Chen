@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Controls the opening and closing movement of the valve object.
 public class ValveController : MonoBehaviour
 {
     public float moveDistance = 0.1f;  
@@ -26,13 +27,14 @@ public class ValveController : MonoBehaviour
         }
     }
 
+    // Opens the valve by moving it rightwards
     public void OpenValve()
     {
         targetPos = startPos + new Vector3(moveDistance, 0, 0);
         moving = true;
     }
 
-    
+    // Closes the valve by returning to start position
     public void CloseValve()
     {
         targetPos = startPos;

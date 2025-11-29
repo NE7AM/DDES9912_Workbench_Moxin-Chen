@@ -6,6 +6,7 @@ public class GroundTrigger : MonoBehaviour
     public ParticleSystem firework;
     public PistonOscillator piston;
     public LightController[] allLamps;
+    public AudioSource fireworkSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -45,5 +46,9 @@ public class GroundTrigger : MonoBehaviour
                     lamp.SetStopColor();
             }
         }
+
+        // 5. Play firework sound
+        if (fireworkSound != null)
+            fireworkSound.Play();
     }
 }

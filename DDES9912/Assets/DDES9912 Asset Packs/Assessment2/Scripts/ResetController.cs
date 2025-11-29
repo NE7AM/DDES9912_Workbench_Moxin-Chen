@@ -9,6 +9,7 @@ public class ResetController : MonoBehaviour
     public PistonOscillator piston;
     public ValveController valve;
     public LeverController lever;
+    public ParticleSystem steam;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,23 +52,32 @@ public class ResetController : MonoBehaviour
             }
         }
 
-        // 4. Stop engine
-        if (piston != null)
-        {
-            piston.SetSpeed(0f);
-            piston.SetRange(0f); 
-        }
-
-        // 5. Close valve
+        // 4. Close valve
         if (valve != null)
         {
             valve.CloseValve();
         }
 
-        // 6. Reset lever back to initial up state
+        // 5. Reset lever back to initial up state
         if (lever != null)
         {
             lever.StopLever();
+        }
+
+        // 6. Stop engine
+        if (piston != null)
+        {
+            piston.Stop();
+        }
+
+        // 7. Force stop steam completely
+        if (steam != null)
+        {
+            steam.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            steam.Clear();
+
+            var emission = steam.emission;
+            emission.enabled = false;
         }
 
     }

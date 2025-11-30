@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TorqueAssist : MonoBehaviour
+public class FlywheelTorqueAssist : MonoBehaviour
 {
     public Rigidbody flywheelRigidbody;
     public float baseTorque = 0.15f;
@@ -25,11 +25,12 @@ public class TorqueAssist : MonoBehaviour
 
         Vector3 torqueDir = Vector3.forward;
 
+        // Check if near dead point
         bool nearTopDeadPoint = Mathf.Abs(Mathf.DeltaAngle(angle, 0f)) < boostRange;
         bool nearBottomDeadPoint = Mathf.Abs(Mathf.DeltaAngle(angle, 180f)) < boostRange;
-
+        // Start with base torque
         float appliedTorque = baseTorque;
-
+        // If in the boost zone, add extra torque
         if (nearTopDeadPoint || nearBottomDeadPoint)
         {
             appliedTorque += boostTorque;

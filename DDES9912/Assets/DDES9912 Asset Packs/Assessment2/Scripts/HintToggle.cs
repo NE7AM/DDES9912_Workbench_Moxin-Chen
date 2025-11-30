@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Controls showing and hiding hint text.
 public class HintToggle : MonoBehaviour
 {
     public GameObject hintText;
@@ -15,12 +16,14 @@ public class HintToggle : MonoBehaviour
         
     }
 
+    // Hide the hint text
     public void HideHint()
     {
         if (hintText != null)
             hintText.SetActive(false);
     }
 
+    // Show the hint text
     public void ShowHint()
     {
         if (hintText != null)
